@@ -2702,6 +2702,7 @@ this["HandlebarsPrecompiled"]["bootstrap-edit"]["message"] = Handlebars.template
         var data = null;
         var schema = null;
         var options = null;
+        var attachments = [];
         var view = null;
         var callback = null;
         var renderedCallback = null;
@@ -2858,6 +2859,7 @@ this["HandlebarsPrecompiled"]["bootstrap-edit"]["message"] = Handlebars.template
             data = config.data;
             schema = config.schema;
             options = config.options;
+            attachments = config.attachments;
             view = config.view;
             callback = config.render;
             if (config.callback) {

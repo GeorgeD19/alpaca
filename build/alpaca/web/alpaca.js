@@ -1936,6 +1936,7 @@ this["HandlebarsPrecompiled"]["web-edit"]["wizard"] = Handlebars.template({"1":f
         var data = null;
         var schema = null;
         var options = null;
+        var attachments = [];
         var view = null;
         var callback = null;
         var renderedCallback = null;
@@ -2092,6 +2093,7 @@ this["HandlebarsPrecompiled"]["web-edit"]["wizard"] = Handlebars.template({"1":f
             data = config.data;
             schema = config.schema;
             options = config.options;
+            attachments = config.attachments;
             view = config.view;
             callback = config.render;
             if (config.callback) {
