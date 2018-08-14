@@ -3,6 +3,7 @@
 *.iws
 .idea
 /.idea
+/distx
 
 /node_modules
 /lib

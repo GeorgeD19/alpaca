@@ -22,6 +22,7 @@
      *     <pre>
      *         Alpaca(el, {
      *              "data" : {Any} field data (optional),
+     *              "attachments": {Object} field attachments (optional),
      *              "schema": {Object} field schema (optional),
      *              "options" : {Object} field options (optional),
      *              "view": {Object|String} field view (object or id reference) (optional),
@@ -53,7 +54,7 @@
         var data = null;
         var schema = null;
         var options = null;
-        var attachments = [];
+        var attachments = null;
         var view = null;
         var callback = null;
         var renderedCallback = null;
@@ -210,7 +211,7 @@
             data = config.data;
             schema = config.schema;
             options = config.options;
-            attachments = config.attachments;
+            attachments = config.attachments ? config.attachments : [];
             view = config.view;
             callback = config.render;
             if (config.callback) {
