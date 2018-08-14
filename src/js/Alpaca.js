@@ -405,6 +405,7 @@
 
         loadAllConnector.loadAll({
             "data": data,
+            "attachments": attachments,
             "schema": schema,
             "options": options,
             "view": view,
@@ -412,11 +413,12 @@
             "schemaSource": schemaSource,
             "optionsSource": optionsSource,
             "viewSource": viewSource
-        }, function(loadedData, loadedOptions, loadedSchema, loadedView) {
+        }, function(loadedData, loadedOptions, loadedSchema, loadedView, loadedAttachments) {
 
             // for cases where things could not be loaded via source loaders, fall back to what may have been passed
             // in directly as values
 
+            loadedAttachments = loadedAttachments ? loadedAttachments : attachments;
             loadedData = loadedData ? loadedData : data;
             loadedSchema = loadedSchema ? loadedSchema: schema;
             loadedOptions = loadedOptions ? loadedOptions : options;
@@ -448,7 +450,7 @@
             }
 
             // init alpaca
-            return Alpaca.init(el, loadedData, loadedOptions, loadedSchema, loadedView, initialSettings, callback, _renderedCallback, connector, errorCallback);
+            return Alpaca.init(el, loadedData, loadedOptions, loadedSchema, loadedView, loadedAttachments, initialSettings, callback, _renderedCallback, connector, errorCallback);
 
         }, function (loadError) {
             errorCallback(loadError);
@@ -1711,7 +1713,7 @@
          *
          * @returns {Alpaca.Field} New field instance.
          */
-        init: function(el, data, options, schema, view, initialSettings, callback, renderedCallback, connector, errorCallback) {
+        init: function(el, data, options, schema, view, attachments, initialSettings, callback, renderedCallback, connector, errorCallback) {
 
             var self = this;
 
@@ -1768,11 +1770,11 @@
                     return Alpaca.throwErrorWithCallback("View compilation failed, cannot initialize Alpaca. " + messages.join(", "), errorCallback);
                 }
 
-                self._init(el, data, options, schema, view, initialSettings, callback, renderedCallback, connector, errorCallback);
+                self._init(el, data, options, schema, view, attachments, initialSettings, callback, renderedCallback, connector, errorCallback);
             }, errorCallback);
         },
 
-        _init: function(el, data, options, schema, view, initialSettings, callback, renderedCallback, connector, errorCallback)
+        _init: function(el, data, options, schema, view, attachments, initialSettings, callback, renderedCallback, connector, errorCallback)
         {
             var self = this;
 
@@ -1879,7 +1881,7 @@
                 //$(el).before(tempHolder);
                 //$(el).remove();
 
-                var field = Alpaca.createFieldInstance(el, data, options, schema, view, connector, errorCallback);
+                var field = Alpaca.createFieldInstance(el, data, options, schema, attachments, view, connector, errorCallback);
                 if (field)
                 {
                     // hide field while rendering
@@ -1993,7 +1995,7 @@
          *
          * @returns {Alpaca.Field} New field instance.
          */
-        createFieldInstance : function(el, data, options, schema, view, connector, errorCallback) {
+        createFieldInstance : function(el, data, options, schema, attachments, view, connector, errorCallback) {
 
             // make sure options and schema are not empty
             if (Alpaca.isValEmpty(options, true)) {
@@ -2001,6 +2003,9 @@
             }
             if (Alpaca.isValEmpty(schema, true)) {
                 schema = {};
+            }
+            if (Alpaca.isValEmpty(attachments, true)) {
+                attachments = [];
             }
 
             // options can be a string that identifies the kind of field to construct (i.e. "text")
@@ -2037,7 +2042,7 @@
                 return null;
             }
             // if we have data, bind it in
-            return new FieldClass(el, data, options, schema, view, connector, errorCallback);
+            return new FieldClass(el, data, options, schema, view, connector, errorCallback, attachments);
         },
 
         /**
