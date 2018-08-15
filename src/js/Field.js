@@ -1233,6 +1233,12 @@
             return top;
         },
 
+        getAttachmentValue: function() {
+            var self = this;
+    
+            return self.attachments;
+        },
+
         /**
          * Returns the value of this field.
          *

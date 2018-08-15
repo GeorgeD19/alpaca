@@ -340,6 +340,16 @@
         },
 
         /**
+         * Returns the value of the JSON rendered by this form.
+         *
+         * @returns {Any} Value of the JSON rendered by this form.
+         */
+        getAttachmentValue: function()
+        {
+            return this.topControl.getAttachmentValue();
+        },
+
+        /**
          * Sets the value of the JSON to be rendered by this form.
          *
          * @param {Any} value Value to be set.

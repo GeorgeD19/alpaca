@@ -341,6 +341,12 @@
                 this.setValue(defaultData);
             },
 
+            getAttachmentValue: function() {
+                var self = this;
+        
+                return self.attachments;
+            },
+
             /**
              * Returns the value of this field.
              *

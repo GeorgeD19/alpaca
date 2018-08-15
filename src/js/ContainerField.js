@@ -794,6 +794,80 @@
         },
 
         /**
+         * Reconstructs the data object from the child fields.
+         *
+         * @see Alpaca.ContainerField#getContainerValue
+         */
+        getAttachmentContainerValue: function()
+        {
+            // if we don't have any children and we're not required, hand back empty object
+            if (this.children.length === 0 && !this.isRequired())
+            {
+                return {};
+            }
+
+            // otherwise, hand back an object with our child properties in it
+            var o = {};
+
+            // walk through all of the properties object
+            // for each property, we insert it into a JSON object that we'll hand back as the result
+
+            // if the property has dependencies, then we evaluate those dependencies first to determine whether the
+            // resulting property should be included
+
+            for (var i = 0; i < this.children.length; i++)
+            {
+                // the property key and vlaue
+                var propertyId = this.children[i].propertyId;
+                var fieldValue = this.children[i].getValue();
+
+                if(fieldValue !== fieldValue) {
+                    // NaN
+                    fieldValue = undefined;
+                }
+
+                if(fieldValue == []) {
+                    // Empty array
+                    fieldValue = undefined;
+                }
+
+                if (typeof(fieldValue) !== "undefined")
+                {
+                    if (this.determineAllDependenciesValid(propertyId))
+                    {
+                        o[propertyId] = this.children[i].getAttachmentValue();
+                    }
+                }
+            }
+
+            return o;
+        },
+
+        /**
+         * Returns the value of this field.
+         *
+         * @returns {Any} value Field value.
+         */
+        getAttachmentValue: function()
+        {
+            var self = this;
+
+            var value = self.getContainerValue();
+
+            /*
+            if (self.isDisplayOnly())
+            {
+                if (value)
+                {
+                    value = JSON.stringify(value, null, "  ");
+                }
+            }
+            */
+
+            return value;
+        },
+
+        /**
          * Extension point
          */
         getContainerValue: function()
