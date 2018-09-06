@@ -132,9 +132,9 @@ this["HandlebarsPrecompiled"]["web-display"]["container"] = Handlebars.template(
 },"5":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "        <p class=\"alpaca-helper "
+  return "        <p class=\"alpaca-helper help-block "
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.options : depth0)) != null ? stack1.helperClass : stack1),{"name":"if","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\">\n            <i class=\"alpaca-icon-helper\"></i>\n            "
+    + "\">\n            <i class=\"fal fa-info-circle\"></i>\n            "
     + ((stack1 = container.lambda(depth0, depth0)) != null ? stack1 : "")
     + "\n        </p>\n";
 },"6":function(container,depth0,helpers,partials,data) {
@@ -290,9 +290,9 @@ this["HandlebarsPrecompiled"]["web-display"]["control"] = Handlebars.template({"
 },"7":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "        <p class=\""
+  return "        <p class=\"help-block "
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.options : depth0)) != null ? stack1.helperClass : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\">\n            <i class=\"info-sign\"></i>\n            "
+    + "\">\n            <i class=\"fal fa-info-circle\"></i>\n            "
     + ((stack1 = container.lambda(depth0, depth0)) != null ? stack1 : "")
     + "\n        </p>\n";
 },"8":function(container,depth0,helpers,partials,data) {
@@ -662,9 +662,9 @@ this["HandlebarsPrecompiled"]["web-edit"]["container"] = Handlebars.template({"1
 },"5":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "        <p class=\"alpaca-helper "
+  return "        <p class=\"help-block alpaca-helper "
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.options : depth0)) != null ? stack1.helperClass : stack1),{"name":"if","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\">\n            <i class=\"alpaca-icon-helper\"></i>\n            "
+    + "\">\n            <i class=\"fal fa-info-circle\"></i>\n            "
     + ((stack1 = container.lambda(depth0, depth0)) != null ? stack1 : "")
     + "\n        </p>\n";
 },"6":function(container,depth0,helpers,partials,data) {
@@ -1274,9 +1274,9 @@ this["HandlebarsPrecompiled"]["web-edit"]["control"] = Handlebars.template({"1":
 },"7":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "        <p class=\""
+  return "        <p class=\"help-block "
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.options : depth0)) != null ? stack1.helperClass : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\">\n            <i class=\"info-sign\"></i>\n            "
+    + "\">\n            <i class=\"fal fa-info-circle\"></i>\n            "
     + ((stack1 = container.lambda(depth0, depth0)) != null ? stack1 : "")
     + "\n        </p>\n";
 },"8":function(container,depth0,helpers,partials,data) {
@@ -1390,7 +1390,7 @@ this["HandlebarsPrecompiled"]["web-edit"]["form"] = Handlebars.template({"1":fun
 this["HandlebarsPrecompiled"]["web-edit"]["message"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function";
 
-  return "<script type=\"text/x-handlebars-template\">\n\n    <div class=\"alpaca-message alpaca-message-"
+  return "<script type=\"text/x-handlebars-template\">\n\n    <div class=\"alpaca-message help-block alpaca-message-"
     + ((stack1 = ((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "\">\n        "
     + ((stack1 = ((helper = (helper = helpers.message || (depth0 != null ? depth0.message : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"message","hash":{},"data":data}) : helper))) != null ? stack1 : "")
