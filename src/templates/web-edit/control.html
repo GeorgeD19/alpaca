@@ -10,8 +10,8 @@
 
         {{#if options.helpers}}
         {{#each options.helpers}}
-        <p class="{{#if options.helperClass}}{{options.helperClass}}{{/if}}">
-            <i class="info-sign"></i>
+        <p class="help-block {{#if options.helperClass}}{{options.helperClass}}{{/if}}">
+            <i class="fal fa-info-circle"></i>
             {{{.}}}
         </p>
         {{/each}}
