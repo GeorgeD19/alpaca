@@ -16234,7 +16234,7 @@
 
             if (this.schema["enum"])
             {
-                var val = this.data;
+                var val = this.getValue();
 
                 if (!this.isRequired() && Alpaca.isValEmpty(val))
                 {

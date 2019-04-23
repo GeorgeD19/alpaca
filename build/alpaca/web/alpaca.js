@@ -17745,7 +17745,7 @@ this["HandlebarsPrecompiled"]["web-edit"]["wizard"] = Handlebars.template({"1":f
 
             if (this.schema["enum"])
             {
-                var val = this.data;
+                var val = this.getValue();
 
                 if (!this.isRequired() && Alpaca.isValEmpty(val))
                 {
